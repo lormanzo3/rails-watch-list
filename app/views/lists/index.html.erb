@@ -1,15 +1,19 @@
+<div class="background"></div>
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.pexels.com/photos/109669/pexels-photo-109669.jpeg);">
   <div class="container">
     <h1>Movie Lists</h1>
   </div>
 </div>
-  <div class="cards">
     <% @lists.each do |list| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : image_path('https://ducunl0s4svtl.cloudfront.net/wp-content/uploads/2017/10/flat-clapperboard-icon_1063-38.jpg') %>)">
+  <div class="cards">
+    <div class="card-category mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.photo.attached? ? cl_image_path(list.photo.key) : image_path('https://ducunl0s4svtl.cloudfront.net/wp-content/uploads/2017/10/flat-clapperboard-icon_1063-38.jpg') %>)">
       <%= link_to list_path(list), class: 'text-dark text-decoration-none' do %>
       <p><%= list.name %></p>
-      <% end %>
-    <% end %>
-
-    <%= link_to "Add a new list", new_list_path(@list) %>
+  </div>
+</div>
+<% end %>
+<% end %>
+<br>
+<div class="text-dark btn btn-warning">
+  <%= link_to "Add a new list", new_list_path(@list), class: 'text-dark text-decoration-none' %>
 </div>
